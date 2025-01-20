@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Navigation Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 2000px; /* To demonstrate scrolling */
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+
+    .nav.scrolled {
+      background-color: #444;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #333;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div id="home" style="height: 100vh; background: rgb(9, 153, 201); padding: 20px;">
+  <h1>Home Section</h1>
+  <p>Scroll down to see the navigation bar in action!</p>
+</div>
+
+<div id="about" style="height: 100vh; background: rgb(207, 11, 11); padding: 20px;">
+  <h1>About Section</h1>
+</div>
+
+<div id="services" style="height: 100vh; background: lightgreen; padding: 20px;">
+  <h1>Services Section</h1>
+</div>
+
+<div id="contact" style="height: 100vh; background: rgb(223, 223, 21); padding: 20px;">
+  <h1>Contact Section</h1>
+</div>
+
+<script>
+  const nav = document.getElementById('nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>
